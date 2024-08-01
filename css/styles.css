@@ -55,14 +55,6 @@ main p {
     justify-content: center;
 }
 
-.image-place {
-    display: none;
-}
-
-.image-place:first-child {
-    display: block;
-}
-
 .main-content section {
     width: 800px;
     display: flex;

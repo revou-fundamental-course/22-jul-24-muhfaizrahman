@@ -1,31 +1,20 @@
-// Ini Javascript
+let start = 0
+otomatis();
 
-let indexSlide = 1;
-showSlide(1);
+function otomatis() {
+    const sliders = document.querySelectorAll(".image-place");
 
-function nextSlide(n) {
-    showSlide(indexSlide += n);
-}
-
-function showSlide(n) {
-    let listImage = document.getElementsByClassName('image-place');
-    console.log(listImage);
-
-    // Algoritma untuk mereset index dari slidenya
-    if (n > listImage.length) { 
-        indexSlide = 1;
+    for (let i = 0; i < sliders.length; i++) {
+        sliders[i].style.display = "none";
     }
 
-    // Algoritma untuk menghilangkan semua gambar
-    let index = 0;
-    while (index < listImage.length) {
-        listImage[index].style.display = 'none';
-        index++;
+    if (start >= sliders.length) {
+        start = 0
     }
 
-    // Algoritma untuk memunculkan 1 gambar saja
-    listImage[indexSlide - 1].style.display = 'block';
-}
+    sliders[start].style.display = "block";
+    console.log("gambar ke" +start);
+    start++;
 
-// Algoritma untuk auto slidenya
-setInterval(() => nextSlide(1), 3000);
+    setTimeout(otomatis, 2000);
+}
